@@ -10,7 +10,7 @@ set -euo pipefail
 # 2 I was tempted to take a bite of it.
 # 3 But this seemed like a bad idea...
 
- cd helper-files
- helper-files % cat -n helper-3.txt
-     1	It looked delicious.
+
+cat -n ../helper-files/helper-3.txt
+    
      
