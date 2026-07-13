@@ -11,3 +11,18 @@ set -euo pipefail
 # It looked delicious.
 # I was tempted to take a bite of it.
 # But this seemed like a bad idea...
+
+
+//cat > helper-2.txt
+There was a house made of gingerbread.
+//cat > helper-3.txt
+It looked delicious.
+// cat > helper-4.txt
+I was tempted to take a bite of it.
+// cat >helper-5.txt
+But this seemed like a bad idea...
+// helper-files % cd ..
+// % cat helper-files/*
+There was a house made of gingerbread.It looked delicious.
+I was tempted to take a bite of it.
+But this seemed like a bad idea...
