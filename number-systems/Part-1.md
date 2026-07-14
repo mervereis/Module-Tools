@@ -38,7 +38,7 @@ Answer:
 
 Q11: Convert the decimal number 14 to hex.
 Answer:
-
+ 
 Q12: Convert the decimal number 386 to hex.
 Answer:
 
