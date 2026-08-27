@@ -31,6 +31,20 @@ let totalWords = 0;
 let totalBytes = 0;
 let filesCounted = 0;
 
+function formatResult(lines, words, bytes, fileName) {
+  let result = "";
+  if (countLines) {
+    result += String(lines).padStart(8);
+  }
+  if (countWords) {
+    result += String(words).padStart(8);
+  }
+  if (countBytes) {
+    result += String(bytes).padStart(8);
+  }
+  return result + " " + fileName;
+}
+
 function countFile(fileName) {
   try {
     const content = fs.readFileSync(fileName, "utf8");
@@ -44,18 +58,7 @@ function countFile(fileName) {
     totalWords += words;
     totalBytes += bytes;
     filesCounted++;
-    let result = "";
-    if (countLines) {
-      result += lines + " ";
-    }
-    if (countWords) {
-      result += words + " ";
-    }
-    if (countBytes) {
-      result += bytes + " ";
-    }
-    result += fileName;
-    console.log(result);
+    console.log(formatResult(lines, words, bytes, fileName));
   } catch (error) {
     console.log("Cannot read file: " + fileName);
   }
@@ -66,17 +69,5 @@ for (let file of files) {
 }
 
 if (filesCounted > 1) {
-  let result = "";
-  if (countLines) {
-    result += totalLines + " ";
-  }
-  if (countWords) {
-    result += totalWords + " ";
-  }
-  if (countBytes) {
-    result += totalBytes + " ";
-  }
-  result += "total";
-
-  console.log(result);
+  console.log(formatResult(totalLines, totalWords, totalBytes, "total"));
 }

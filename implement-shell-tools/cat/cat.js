@@ -25,10 +25,14 @@ let lineNumber = 1;
 for (const file of files) {
   try {
     const contents = fs.readFileSync(file, "utf8");
-    const lines = contents.split("\n");
+    const hasTrailingNewline = contents.endsWith("\n");
+    const lines = hasTrailingNewline
+      ? contents.slice(0, -1).split("\n")
+      : contents.split("\n");
 
     lines.forEach((line, index) => {
-      const output = index < lines.length - 1 ? line + "\n" : line;
+      const output =
+        index < lines.length - 1 || hasTrailingNewline ? line + "\n" : line;
 
       if (numberNonBlank) {
         if (line.trim() === "") {

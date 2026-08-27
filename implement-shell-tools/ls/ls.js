@@ -43,7 +43,7 @@ for (let i = 0; i < paths.length; i++) {
       }
 
       if (!onePerLine) {
-        console.log();
+        process.stdout.write("\n");
       }
     }
   } catch (error) {
